@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= config.title %></title>
+  <title><%= is_home() ? config.title : config.title + ' - ' + page.title %></title>
   <link rel="stylesheet" href="<%= url_for('/css/style.css') %>">
 </head>
 <body>
   <header class="site-header">
     <nav class="site-nav">
-      <a href="<%= url_for('/') %>" class="<%= page.path === '' || page.path === 'index.html' ? 'active' : '' %>">词典</a>
-      <a href="<%= url_for('/yuanqi/') %>" class="<%= page.path && page.path.startsWith('yuanqi') ? 'active' : '' %>">缘起</a>
-      <a href="<%= url_for('/dianju/') %>" class="<%= page.path && page.path.startsWith('dianju') ? 'active' : '' %>">典据</a>
-      <a href="<%= url_for('/archives/') %>" class="<%= page.path && page.path.startsWith('archives') ? 'active' : '' %>">文章</a>
+      <% for (const label in theme.nav) {
+        const href = theme.nav[label];
+        const isExternal = !href.startsWith('/');
+        const navPath = href.replace(/^\/+/, '');
+        const curPath = page.path || '';
+        const isHome = navPath === '' && (curPath === '' || curPath === 'index.html');
+        const isActive = !isExternal && (isHome || (navPath && curPath.startsWith(navPath)));
+      %>
+        <a href="<%= isExternal ? href : url_for(href) %>" class="<%= isActive ? 'active' : '' %>"><%= label %></a>
+      <% } %>
     </nav>
   </header>
 
