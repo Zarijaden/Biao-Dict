@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { pinyin } = require('pinyin');
 
 const src = fs.readFileSync('./source/_data/dict.txt', 'utf8');
 const lines = src.split('\n');
@@ -31,11 +32,11 @@ lines.forEach((line, index) => {
     return;
   }
 
-  // 4. 检查是否有拼音（至少一个字母）
-  const pinyin = parts[1] || '';
+  // 4. IPA 音标
+  const ipa = parts[1] || '';
 
-  // 5. 去重（用中文+拼音作为唯一标识）
-  const key = word + '|' + pinyin;
+  // 5. 去重（用中文+IPA作为唯一标识）
+  const key = word + '|' + ipa;
   if (seen.has(key)) {
     console.log(`⚠️ 第 ${index + 1} 行重复词条，已跳过: "${raw}"`);
     skipCount++;
@@ -43,14 +44,21 @@ lines.forEach((line, index) => {
   }
   seen.add(key);
 
-  items.push({ word, pinyin });
+  // 6. 计算首个汉字的汉语拼音全拼和首字母
+  const pyArr = pinyin(word, { style: 'normal' });
+  const pinyin_full = (pyArr.length > 0 && pyArr[0].length > 0) ? pyArr[0][0] : '';
+  const initial = pinyin_full ? pinyin_full.charAt(0).toUpperCase() : '#';
+
+  items.push({ word, ipa, initial, pinyin_full });
 });
 
 // 生成YAML
 let yaml = '';
 items.forEach(item => {
   yaml += `- word: ${item.word}\n`;
-  yaml += `  pinyin: ${item.pinyin}\n`;
+  yaml += `  ipa: ${item.ipa}\n`;
+  yaml += `  initial: ${item.initial}\n`;
+  yaml += `  pinyin_full: ${item.pinyin_full}\n`;
 });
 
 fs.writeFileSync('./source/_data/dict.yml', yaml, 'utf8');

@@ -1,3 +1,42 @@
-<div class="welcome">
-  <h1>Welcome to ShowPages</h1>
+<%
+// 读取词典数据并按汉语拼音首字母分组
+const dict = site.data.dict || [];
+const groups = {};
+
+dict.forEach(item => {
+  const initial = item.initial || '#';
+  if (!groups[initial]) groups[initial] = [];
+  groups[initial].push(item);
+});
+
+// 每组内按首个汉字的拼音全拼排序
+Object.keys(groups).forEach(letter => {
+  groups[letter].sort((a, b) =>
+    (a.pinyin_full || '').localeCompare(b.pinyin_full || '')
+  );
+});
+
+// 字母组在前，# 在最后
+const sortedKeys = Object.keys(groups).sort((a, b) => {
+  if (a === '#') return 1;
+  if (b === '#') return -1;
+  return a.localeCompare(b);
+});
+%>
+
+<div class="dict">
+  <% if (sortedKeys.length === 0) { %>
+    <p class="dict-empty">暂无词条。</p>
+  <% } else { %>
+    <% sortedKeys.forEach(letter => { %>
+      <div class="dict-group">
+        <h2 class="dict-letter"><%= letter %></h2>
+        <div class="dict-words">
+          <% groups[letter].forEach(item => { %>
+            <span class="dict-entry"><%= item.word %> <span class="dict-pinyin">[<%= item.ipa %>]</span></span>
+          <% }); %>
+        </div>
+      </div>
+    <% }); %>
+  <% } %>
 </div>
