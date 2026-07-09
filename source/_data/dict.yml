@@ -906,7 +906,7 @@
   ipa: lɐm²¹ tsɔ⁵³
   initial: L
   pinyin_full: lao
-- word: 下山
+- word: 下（~山）
   ipa: lɔi²³¹
   initial: X
   pinyin_full: xia
@@ -915,7 +915,7 @@
   initial: Y
   pinyin_full: yuan
 - word: 痕迹
-  ipa: ȵɔi²¹⁴
+  ipa: ȵiɔi²¹⁴
   initial: H
   pinyin_full: hen
 - word: 种子
@@ -982,7 +982,7 @@
   ipa: uɔŋ²¹⁴
   initial: D
   pinyin_full: dao
-- word: 鸡血
+- word: 鸡血(鸡旺)
   ipa: kai³³⁴uɔŋ²²
   initial: J
   pinyin_full: ji
@@ -1019,7 +1019,7 @@
   initial: C
   pinyin_full: cao
 - word: 大
-  ipa: lɔŋ³³⁴
+  ipa: loŋ³³⁴
   initial: D
   pinyin_full: da
 - word: 水坑
@@ -1030,7 +1030,7 @@
   ipa: θɔŋ²³¹
   initial: B
   pinyin_full: ben
-- word: 菜饭（~）
+- word: 菜（饭~）
   ipa: iɔŋ²¹⁴
   initial: C
   pinyin_full: cai
@@ -1194,11 +1194,11 @@
   ipa: pʰut³³⁴
   initial: H
   pinyin_full: hu
-- word: 焦饭（了）
+- word: 焦（饭~了）
   ipa: lut³³⁴
   initial: J
   pinyin_full: jiao
-- word: 长草（得快）
+- word: 长（草~得快）
   ipa: put³³⁴
   initial: C
   pinyin_full: chang
@@ -1210,8 +1210,8 @@
   ipa: ly⁵³
   initial: Q
   pinyin_full: qing
-- word: 站（立）
-  ipa: ɲyn⁵⁵
+- word: 站（~立）
+  ipa: ȵyn⁵⁵
   initial: Z
   pinyin_full: zhan
 - word: 月亮
@@ -1222,11 +1222,11 @@
   ipa: pɔ²¹kyn⁵³
   initial: X
   pinyin_full: xiong
-- word: 包（起来）
+- word: 包（~起来）
   ipa: tsʰyt³³⁴
   initial: B
   pinyin_full: bao
-- word: 捞（起）
+- word: 捞（~起）
   ipa: syt³³⁴
   initial: L
   pinyin_full: lao
@@ -1235,7 +1235,7 @@
   initial: Y
   pinyin_full: yi
 - word: 什么
-  ipa: hŋ²¹sie⁵⁵
+  ipa: hŋ²¹siɐ⁵⁵
   initial: S
   pinyin_full: shi
 - word: 午甲
@@ -1243,25 +1243,13 @@
   initial: W
   pinyin_full: wu
 - word: 十五
-  ipa: sep²¹hm⁵³
+  ipa: sɐp²¹hm⁵³
   initial: S
   pinyin_full: shi
-- word: 天
-  ipa: mɛn⁵⁵
-  initial: T
-  pinyin_full: tian
-- word: 火
-  ipa: pɛi⁵⁵
-  initial: H
-  pinyin_full: huo
 - word: 风
   ipa: lɛm²¹⁴
   initial: F
   pinyin_full: feng
-- word: 他
-  ipa: mɛn²¹⁴
-  initial: T
-  pinyin_full: ta
 - word: 梯子
   ipa: la⁵³
   initial: T
@@ -1271,29 +1259,17 @@
   initial: P
   pinyin_full: pa
 - word: 飞
-  ipa: pɛn³³⁴
+  ipa: pɐn³³⁴
   initial: F
   pinyin_full: fei
 - word: 母亲
   ipa: na²²
   initial: M
   pinyin_full: mu
-- word: 鸭子
-  ipa: pɛiɛt⁵
-  initial: Y
-  pinyin_full: ya
-- word: 蜈蚣
-  ipa: iɛp²¹⁴
-  initial: W
-  pinyin_full: wu
 - word: 密
-  ipa: miet²¹⁴
+  ipa: miɐt²¹⁴
   initial: M
   pinyin_full: mi
-- word: 骨头
-  ipa: iɛk²¹⁴
-  initial: G
-  pinyin_full: gu
 - word: 凹
   ipa: mip³³⁴
   initial: A
@@ -1302,11 +1278,7 @@
   ipa: kɔk³³⁴
   initial: G
   pinyin_full: guo
-- word: 漂洗（在河边）
+- word: 漂洗（在河边~）
   ipa: iɛp²²
   initial: P
   pinyin_full: piao
-- word: 担（一水）
-  ipa: uɔt²²
-  initial: D
-  pinyin_full: dan
