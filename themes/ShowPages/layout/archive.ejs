@@ -1,0 +1,15 @@
+<div class="archive">
+  <h1 class="archive-title">文章列表</h1>
+  <% if (site.posts && site.posts.length) { %>
+    <ul class="archive-list">
+      <% site.posts.sort('-date').forEach(function(post) { %>
+        <li class="archive-item">
+          <time class="archive-date"><%= date(post.date, 'YYYY-MM-DD') %></time>
+          <a class="archive-link" href="<%= url_for(post.path) %>"><%= post.title %></a>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>暂无文章。</p>
+  <% } %>
+</div>

@@ -1,0 +1,130 @@
+/* ShowPages Theme Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f9f5f0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #333;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── Header & Navigation ── */
+
+.site-header {
+  padding: 20px 40px 0;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: #222;
+}
+
+.site-nav a.active {
+  color: #b8541e;
+  font-weight: bold;
+}
+
+/* ── Main Content ── */
+
+.site-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ── Page ── */
+
+.page-title,
+.post-title,
+.archive-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+  font-weight: normal;
+}
+
+.page-content,
+.post-content {
+  font-size: 17px;
+}
+
+.page-content p,
+.post-content p {
+  margin-bottom: 1em;
+}
+
+/* ── Post ── */
+
+.post-header {
+  margin-bottom: 24px;
+}
+
+.post-date {
+  color: #999;
+  font-size: 14px;
+}
+
+/* ── Archive ── */
+
+.archive-list {
+  list-style: none;
+  padding: 0;
+}
+
+.archive-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #e8e3dc;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.archive-date {
+  color: #999;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.archive-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.archive-link:hover {
+  color: #b8541e;
+}
+
+/* ── Welcome ── */
+
+.welcome {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.welcome h1 {
+  font-size: 32px;
+  font-weight: normal;
+  color: #555;
+}
