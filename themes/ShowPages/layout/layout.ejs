@@ -10,6 +10,8 @@
 <body>
   <header class="site-header">
     <nav class="site-nav">
+      <a class="site-title" href="<%= url_for('/') %>"><%= config.title %></a>
+      <div class="site-nav-links">
       <% for (const label in theme.nav) {
         const href = theme.nav[label];
         const isExternal = !href.startsWith('/');
@@ -20,6 +22,7 @@
       %>
         <a href="<%= isExternal ? href : url_for(href) %>" class="<%= isActive ? 'active' : '' %>"><%= label %></a>
       <% } %>
+      </div>
     </nav>
   </header>
 
