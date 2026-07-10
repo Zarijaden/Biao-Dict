@@ -12,4 +12,4 @@ favicon: images/logo.jpg
 
 # Index page note (supports line breaks with |)
 index:
-  note: 标*的词汇音标为个人拼写，大概率会有失误 #换行用<br>
+  note: 标*的词汇音标为个人拼写，有失误可能性 #换行用<br>

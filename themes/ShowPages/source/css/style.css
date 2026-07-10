@@ -88,6 +88,16 @@ body {
   margin-bottom: 1em;
 }
 
+.page-content a::after,
+.post-content a::after {
+  content: '\f02d';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.5em;
+  color: #999;
+  vertical-align: super;
+}
+
 /* ── Content Headings ── */
 
 .page-title h1 {
