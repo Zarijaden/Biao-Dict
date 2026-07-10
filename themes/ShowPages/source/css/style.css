@@ -208,6 +208,87 @@ pre code {
   }
 }
 
+/* ── Search ── */
+
+.dict-search {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.dict-search-input {
+  width: 240px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333;
+  background: #fff;
+  border: 1px solid #d5cfc5;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dict-search-input:focus {
+  border-color: #b8541e;
+  box-shadow: 0 0 0 2px rgba(184, 84, 30, 0.12);
+}
+
+.dict-search-input::placeholder {
+  color: #bbb;
+}
+
+.dict-search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 280px;
+  max-height: 360px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e0dbd3;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  margin-top: 4px;
+}
+
+.dict-search-item {
+  padding: 8px 14px;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3efe8;
+  transition: background 0.15s;
+}
+
+.dict-search-item:last-child {
+  border-bottom: none;
+}
+
+.dict-search-item:hover,
+.dict-search-item.active {
+  background: #fdf3e8;
+}
+
+.dict-search-item-ipa {
+  color: #bbb;
+  font-size: 0.85em;
+}
+
+.dict-search-empty {
+  padding: 16px 14px;
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+}
+
+.dict-entry.highlight {
+  background: #fff9c4;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
 /* ── Note ── */
 
 .note-text {
