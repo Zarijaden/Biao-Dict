@@ -23,7 +23,11 @@ const sortedKeys = Object.keys(groups).sort((a, b) => {
   return a.localeCompare(b);
 });
 %>
-
+<div class="note">
+  <% if (theme.index && theme.index.note) { %>
+    <p class="note-text"><%- theme.index.note.replace(/\n/g, '<br>') %></p>
+  <% } %>
+</div>
 <div class="dict">
   <% if (sortedKeys.length === 0) { %>
     <p class="dict-empty">暂无词条。</p>

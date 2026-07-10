@@ -208,6 +208,15 @@ pre code {
   }
 }
 
+/* ── Note ── */
+
+.note-text {
+  font-size: 13px;
+  color: #999;
+  display: block;
+  line-height: 1.6;
+}
+
 /* ── Welcome ── */
 
 .welcome {
