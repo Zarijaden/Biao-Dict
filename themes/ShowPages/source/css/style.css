@@ -88,6 +88,12 @@ body {
   margin-bottom: 1em;
 }
 
+.page-content a,
+.post-content a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .page-content a::after,
 .post-content a::after {
   content: '\f02d';
