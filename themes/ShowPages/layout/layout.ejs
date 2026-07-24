@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+  <div class="page-wrapper">
   <header class="site-header">
     <nav class="site-nav">
       <a class="site-title" href="<%= url_for('/') %>"><%= config.title %></a>
@@ -30,5 +31,9 @@
   <main class="site-main">
     <%- body %>
   </main>
+  </div>
+  <footer class="site-footer">
+    <span>自 <%= theme.since || '未知' %> · 已收录 <%= site.data.dict ? site.data.dict.length : 0 %> 个词条 · 手工维护</span>
+  </footer>
 </body>
 </html>
