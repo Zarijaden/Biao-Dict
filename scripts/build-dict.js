@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { pinyin } = require('pinyin');
 
-const src = fs.readFileSync('./source/_data/dict.txt', 'utf8');
+const src = fs.readFileSync('./dict.txt', 'utf8');
 const lines = src.split('\n');
 
 const seen = new Set();

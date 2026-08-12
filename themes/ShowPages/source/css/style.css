@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  max-width: 800px;
+  max-width: min(1600px, 95vw);
   margin: 0 auto;
   padding-bottom: 12px;
   border-bottom: 1px solid #ddd;
@@ -65,7 +65,7 @@ body {
 /* ── Main Content ── */
 
 .site-main {
-  max-width: 800px;
+  max-width: min(1600px, 95vw);
   margin: 40px auto;
   padding: 0 20px;
 }
@@ -73,6 +73,19 @@ body {
 /* ── Page ── */
 
 /*.page-title,*/
+.post-title,
+.archive-title,
+.post-header,
+.page-content,
+.post-content,
+.archive-list,
+.page-title,
+.welcome {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .post-title,
 .archive-title {
   font-size: 28px;
@@ -189,7 +202,7 @@ pre code {
 /* ── Dictionary ── */
 
 .dict {
-  column-count: 3;
+  column-width: 260px;
   column-gap: 32px;
   column-rule: 1px solid #e8e3dc;
 }
@@ -226,16 +239,25 @@ pre code {
   font-size: 0.85em;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .dict {
-    column-count: 2;
+    column-width: 230px;
     column-gap: 24px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .dict {
+    column-count: 2;
+    column-width: auto;
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 420px) {
   .dict {
     column-count: 1;
+    column-width: auto;
   }
 }
 
