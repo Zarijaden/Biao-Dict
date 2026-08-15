@@ -207,6 +207,85 @@ pre code {
   column-rule: 1px solid #e8e3dc;
 }
 
+/* ── Alphabet navigation (vertical, fixed right, responsive) ── */
+
+.dict-alphabet {
+  position: fixed;
+  right: clamp(6px, 1.5vw, 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 50;
+  /* 矮屏首尾也能触达：限制自身高度，超出时内部滚动 */
+  max-height: 88vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.dict-alphabet::-webkit-scrollbar {
+  display: none;
+}
+
+.dict-alpha-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(24px, 5vw, 38px);
+  height: clamp(20px, 2.4vh, 30px);
+  font-size: clamp(13px, 0.9vw + 9px, 17px);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1;
+  color: #bbb;              /* 未激活为灰色 */
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.15s;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.dict-alpha-btn:hover {
+  color: #b8541e;
+}
+
+.dict-alpha-btn.active {
+  color: #b8541e;            /* 激活：只变字体颜色 */
+  font-weight: bold;
+}
+
+.dict-alpha-btn.alpha-hash {
+  color: #ccc;
+}
+
+.dict-alpha-btn.alpha-hash.active {
+  color: #b8541e;
+}
+
+/* 矮屏：进一步压缩字号与间距，确保不超高 */
+@media (max-height: 620px) {
+  .dict-alpha-btn {
+    height: clamp(15px, 3.2vh, 22px);
+    font-size: clamp(11px, 1.8vh, 14px);
+  }
+}
+
+/* 窄屏：缩小字号与点按目标，但绝不隐藏 */
+@media (max-width: 760px) {
+  .dict-alphabet {
+    right: clamp(4px, 1vw, 8px);
+  }
+  .dict-alpha-btn {
+    width: clamp(22px, 7vw, 28px);
+    height: clamp(20px, 2.2vh, 26px);
+    font-size: clamp(12px, 0.8vw + 10px, 15px);
+  }
+  .site-main {
+    padding-right: 30px;
+  }
+}
+
 .dict-empty {
   text-align: center;
   color: #999;
@@ -225,6 +304,16 @@ pre code {
   border-bottom: 1px solid #d5cfc5;
   margin-bottom: 8px;
   padding-bottom: 4px;
+}
+
+.dict-letter.flash {
+  animation: letterFlash 1.4s ease;
+}
+
+@keyframes letterFlash {
+  0%   { background-color: rgba(184, 84, 30, 0.28); color: #7a3a12; }
+  70%  { background-color: rgba(184, 84, 30, 0.08); }
+  100% { background-color: transparent; color: #b8541e; }
 }
 
 .dict-entry {

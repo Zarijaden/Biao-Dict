@@ -37,13 +37,19 @@ const sortedKeys = Object.keys(groups).sort((a, b) => {
   <% } %>
 </div>
 
+<nav class="dict-alphabet" aria-label="按拼音首字母浏览">
+  <% sortedKeys.forEach(letter => { %>
+    <a class="dict-alpha-btn<% if (letter === '#') { %> alpha-hash<% } %>" href="#letter-<%= letter %>" data-letter="<%= letter %>"><%= letter %></a>
+  <% }); %>
+</nav>
+
 <div class="dict">
   <% if (sortedKeys.length === 0) { %>
     <p class="dict-empty">暂无词条。</p>
   <% } else { %>
     <% sortedKeys.forEach(letter => { %>
-      <div class="dict-group">
-        <h2 class="dict-letter"><%= letter %></h2>
+      <div class="dict-group" data-letter="<%= letter %>">
+        <h2 class="dict-letter" id="letter-<%= letter %>"><%= letter %></h2>
         <div class="dict-words">
           <% groups[letter].forEach(item => { %>
             <span class="dict-entry" id="entry-<%= item._idx %>"><%= item.word %> <span class="dict-pinyin">[<%= item.ipa %>]</span></span>
@@ -160,7 +166,47 @@ const sortedKeys = Object.keys(groups).sort((a, b) => {
     }
   }
 
-  // 点击外部关闭下拉
+   // ── 字母导航条 ──
+  const alphaNav = document.querySelector('.dict-alphabet');
+  if (alphaNav && document.querySelectorAll('.dict-group').length) {
+    var alphaBtns = Array.prototype.slice.call(alphaNav.querySelectorAll('.dict-alpha-btn'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.dict-group'));
+
+    function setActiveLetter(letter) {
+      alphaBtns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-letter') === letter);
+      });
+    }
+
+    alphaNav.addEventListener('click', function(e) {
+      var btn = e.target.closest('.dict-alpha-btn');
+      if (!btn) return;
+      var letter = btn.getAttribute('data-letter');
+      var letterEl = document.getElementById('letter-' + letter);
+      if (letterEl) {
+        e.preventDefault();
+        letterEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveLetter(letter);
+        // 高亮该分组的大标题，提示用户已跳转到此
+        flashLetter(letterEl);
+        // 更新地址栏 hash（不触发滚动）
+        try { history.replaceState(null, '', '#letter-' + encodeURIComponent(letter)); } catch (err) {}
+      }
+    });
+
+    function flashLetter(el) {
+      // 清除上一次残留的高亮
+      var prev = document.querySelector('.dict-letter.flash');
+      if (prev) prev.classList.remove('flash');
+      el.classList.add('flash');
+      var done = function() { el.classList.remove('flash'); };
+      el.addEventListener('animationend', done, { once: true });
+      // 兜底：动画若未触发，仍保证移除
+      setTimeout(done, 1600);
+    }
+  }
+
+// 点击外部关闭下拉
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.dict-search')) {
       results.style.display = 'none';
